@@ -30,6 +30,7 @@ let header = (doc, invoice) => {
     if(invoice.header.company_address.length!==0){
       companyAddress(doc, invoice.header.company_address);
     }
+  
     
 }
 
@@ -126,9 +127,13 @@ let invoiceTable = (doc, invoice) => {
 }
 
 let footer = (doc, invoice) => {
+  if (fs.existsSync(invoice.header.company_logo)) {
+    doc.image(invoice.header.company_logo, 50, 45, { align: "right", width: 50 })
+    .moveDown();
+  }
   if(invoice.footer.text.length!==0){
     doc.fontSize(10).text(invoice.footer.text, 50, 710, { align: "center", width: 500 });
-  } 
+  }
 }
 
 let totalTable = (
