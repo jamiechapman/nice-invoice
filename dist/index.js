@@ -128,7 +128,7 @@ let invoiceTable = (doc, invoice) => {
 
 let footer = (doc, invoice) => {
   if(invoice.footer.text.length!==0){
-    doc.font("Courier").fontSize(10).text(invoice.footer.text, 50, 650, { align: "center", width: 500 });
+    doc.font("Courier").fontSize(10).text(invoice.footer.text, 50, 600, { align: "center", width: 500 });
   }
 }
 
